@@ -29,7 +29,7 @@ const promise2 = new Promise((resolve) => {
 
 const promise3 = new Promise((resolve) => {
   const handleClick = (e) => {
-    if (e.buttons === 3) {
+    if (e.button === 1) {
       resolve('Third promise was resolved');
       document.removeEventListener('mousedown', handleClick);
     }
@@ -47,12 +47,12 @@ const successHandler = (message) => {
   document.body.appendChild(messageBlock);
 };
 
-const errorHandler = (message) => {
+const errorHandler = (data) => {
   const messageBlock = document.createElement('div');
 
   messageBlock.className = 'error';
   messageBlock.dataset.qa = 'notification';
-  messageBlock.innerText = message;
+  messageBlock.innerText = data.message;
   document.body.appendChild(messageBlock);
 };
 
